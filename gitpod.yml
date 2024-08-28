@@ -1,0 +1,21 @@
+tasks:
+  - name: "Setup Java"
+    init: |
+      # Install SDKMAN! for Java version management
+      curl -s "https://get.sdkman.io" | bash
+      source "$HOME/.sdkman/bin/sdkman-init.sh"
+      # Install the desired version of Java (e.g., Java 17)
+      sdk install java 17.0.7-tem
+    command: |
+      # Compile the Java program
+      javac CaseChange.java
+      # Run the Java program
+      java CaseChange
+
+vscode:
+  extensions:
+    - vscjava.vscode-java-pack
+
+ports:
+  - port: 8080
+    onOpen: open-preview
